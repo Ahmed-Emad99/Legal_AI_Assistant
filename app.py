@@ -193,7 +193,7 @@ def get_faq_context(question):
 
 # RAG Chain Setup
 def get_rag_chain(vector_store):
-    retriever = vector_store.as_retriever(search_kwargs={"k": 3})
+    retriever = vector_store.as_retriever(search_kwargs={"k": 5})
     rewriter = get_query_rewriter()
     
     template = """أنت مساعد قانوني ذكي ومتخصص جداً في قانون العمل المصري. 
@@ -297,4 +297,5 @@ if prompt := st.chat_input("اسأل عن أي شيء في قانون العمل
             response = rag_chain.invoke(prompt)
             st.markdown(response)
             st.session_state.messages.append({"role": "assistant", "content": response})
+
 
