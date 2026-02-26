@@ -54,7 +54,7 @@ llm = ChatGoogleGenerativeAI(model="gemini-2.5-flash", temperature=0)
 # Initialize Embeddings
 @st.cache_resource
 def get_embeddings():
-    return HuggingFaceEmbeddings(model_name="BAAI/bge-m3")
+    return HuggingFaceEmbeddings(model_name="BAAI/bge-m3", huggingfacehub_api_token=st.secrets["HF_TOKEN"])
 
 def eastern_to_western(text):
     eastern_digits = '٠١٢٣٤٥٦٧٨٩۰۱۲۳۴۵۶۷۸۹'
@@ -297,3 +297,4 @@ if prompt := st.chat_input("اسأل عن أي شيء في قانون العمل
             response = rag_chain.invoke(prompt)
             st.markdown(response)
             st.session_state.messages.append({"role": "assistant", "content": response})
+
