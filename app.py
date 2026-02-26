@@ -14,7 +14,6 @@ import unicodedata
 from langchain_core.documents import Document
 import json
 
-os.environ["HF_TOKEN"] = st.secrets["HF_TOKEN"]
 # Constants
 PDF_PATH = "egyptian_labor_law.pdf"
 DB_FAISS_PATH = "vectorstore/db_faiss_v3" 
@@ -297,5 +296,6 @@ if prompt := st.chat_input("اسأل عن أي شيء في قانون العمل
             response = rag_chain.invoke(prompt)
             st.markdown(response)
             st.session_state.messages.append({"role": "assistant", "content": response})
+
 
 
