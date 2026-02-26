@@ -1,11 +1,7 @@
-streamlit==1.54.0
-
-langchain==0.2.17
-langchain-community==0.2.17
-
+streamlit
+langchain
 langchain-google-genai
 langchain-huggingface
-
 sentence-transformers
 faiss-cpu
 pypdf
